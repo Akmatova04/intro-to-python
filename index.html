@@ -1,0 +1,19 @@
+from PIL import Image
+
+# Жүктөлгөн сүрөттүн жолун ачабыз
+image_path = "/mnt/data/resized_image_100x50cm_300dpi.png"
+image = Image.open(image_path)
+
+# Бир аз кичирейтип, мисалы 80% кылабыз
+scale_factor = 0.8
+new_width = int(image.width * scale_factor)
+new_height = int(image.height * scale_factor)
+
+# Кайра өлчөмдөө
+resized_smaller = image.resize((new_width, new_height), Image.LANCZOS)
+
+# Сактоо
+smaller_path = "/mnt/data/resized_image_80_percent.png"
+resized_smaller.save(smaller_path)
+
+smaller_path
